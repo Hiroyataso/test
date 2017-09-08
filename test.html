@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Kairos</title>
+  </head>
+  <body>
+
+
+  <script>
+    var imgUrl = encodeURIComponent('https://raw.githubusercontent.com/webhacck/kairos-sample/master/img/face-sample.jpg');
+    var imgUrl2 = encodeURIComponent('http://farm4.static.flickr.com/3305/3519391242_c5f2ddd69f_o.png')
+    var url = 'https://api.kairos.com/v2/media?source='+imgUrl2;
+    var request = new XMLHttpRequest();
+
+    request.open('POST', url);
+    request.setRequestHeader('app_id', '19379b03');
+    request.setRequestHeader('app_key', '1a0901197ffcd81c628c3e13e2a36053');
+
+    request.onreadystatechange = function () {
+      if (this.readyState === 4) {
+
+        console.log( JSON.parse(this.responseText) );
+
+      }
+    };
+
+    request.send();
+    </script>
+  </body>
+</html>
